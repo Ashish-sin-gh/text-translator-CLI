@@ -5,7 +5,7 @@ const usage = "\nUsage: tran <lang_name> sentence to be translated";
 function parseArgument(wordsArray) {
   //as the arguments will be stored in array, u need to parse it into sentence to work on it
   let sentence = "";
-  for (let i = 0; i < wordsArray.length; i++) {
+  for (let i = 1; i < wordsArray.length; i++) {
     sentence = sentence + wordsArray[i] + " ";
   }
   return sentence;
