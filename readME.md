@@ -35,3 +35,41 @@ A shebang line is used to specify the absolute path to the interpreter that will
    `~$tran`
 
 ## Handling CommandLine argument
+
+Although `Node.js` offers built-in functionality for handling command line arguments, we are going to use an npm package called [yargs](https://www.npmjs.com/package/yargs "visit npm yargs") which is specifically made for building CLI
+
+#### YARGS
+
+1. install `yargs`
+
+```
+~$npm i yargs
+```
+
+2. include the module in your index.js :
+
+```
+const yargs = require("yargs");
+```
+
+## API used
+
+```
+@vitalets/google-translate-api
+```
+
+### Installation of API
+
+```
+npm install @vitalets/google-translate-api
+```
+
+### usage
+
+```
+import { translate } from '@vitalets/google-translate-api';
+
+const { text } = await translate('Привет, мир! Как дела?', { to: 'en' });
+
+console.log(text) // => 'Hello World! How are you?'
+```
