@@ -2,6 +2,7 @@
 
 const yargs = require("yargs");
 const chalk = require("chalk");
+const boxen = require("boxen");
 
 const utils = require("./utility");
 const { translate } = require("@vitalets/google-translate-api");
@@ -57,7 +58,14 @@ if (sentence === "") {
 async function op() {
   try {
     const { text } = await translate(sentence, { to: lang });
-    console.log(chalk.green(`\n\n${text}\n\n`));
+    // console.log(chalk.green(`\n\n${text}\n\n`));
+    console.log(
+      boxen(chalk.yellowBright(`${text}`), {
+        padding: 1,
+        margin: 1,
+        borderStyle: "double",
+      })
+    );
   } catch (err) {
     console.error(chalk.red(err));
     return;
