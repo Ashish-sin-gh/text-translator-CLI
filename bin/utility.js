@@ -1,4 +1,5 @@
 const languages = require("./langStore");
+const chalk = require("chalk");
 
 const usage = "\nUsage: tran <lang_name> sentence to be translated";
 
@@ -30,7 +31,7 @@ function showHelp() {
 function showAllLang() {
   console.log("language\t\t\tcode");
   for (let [lang, code] of languages) {
-    console.log(lang + "\t\t\t" + code);
+    console.log(chalk.yellow(lang.trim() + "\t\t\t" + code.trim()));
   }
 }
 
@@ -40,8 +41,8 @@ function getLangCode(language) {
   } else if (languages.has(language)) {
     return languages.get(language);
   } else {
-    console.error("language not supported");
-    console.log("choose from below language list");
+    console.error(chalk.magenta("language not supported"));
+    console.log(chalk.bgGreen("choose from below language list"));
     showAllLang();
     return;
   }

@@ -1,4 +1,6 @@
-# How to make a CLI project using NodeJS?
+# text translator CLI
+
+## CLI Tool for english to any language translation using NodeJS.
 
 Initialise npm - `npm init -y`
 
@@ -72,4 +74,20 @@ import { translate } from '@vitalets/google-translate-api';
 const { text } = await translate('Привет, мир! Как дела?', { to: 'en' });
 
 console.log(text) // => 'Hello World! How are you?'
+```
+
+## Libraries / packets used
+
+### 1. Chalk
+
+#### installation
+
+```
+npm install chalk
+```
+
+#### usage
+
+```
+import chalk from 'chalk';
 ```

@@ -1,6 +1,8 @@
 #! /usr/bin/env node
 
 const yargs = require("yargs");
+const chalk = require("chalk");
+
 const utils = require("./utility");
 const { translate } = require("@vitalets/google-translate-api");
 
@@ -17,7 +19,7 @@ const options = yargs
   })
   .help(true).argv;
 
-console.log(yargs.argv);
+// console.log(yargs.argv);
 /*
 All the arguments that you pass with the command gets stored under the listyargs.argv._ unless the argument begin with a — or a -- in that case, it is treated as a flag with a default value of boolean.
 */
@@ -48,16 +50,16 @@ if (yargs.argv._[0]) {
 lang = utils.getLangCode(lang);
 
 if (sentence === "") {
-  console.error("\nno sentence found");
-  console.log("Enter tran --help to get started.\n");
+  console.error(chalk.red("\nno sentence found"));
+  console.log(chalk.green("Enter tran --help to get started.\n"));
   return;
 }
 async function op() {
   try {
     const { text } = await translate(sentence, { to: lang });
-    console.log(`\n\n${text}\n\n`);
+    console.log(chalk.green(`\n\n${text}\n\n`));
   } catch (err) {
-    console.error(err);
+    console.error(chalk.red(err));
     return;
   }
 }
